@@ -3,13 +3,18 @@
 Cartoonnator is a Python project that will convert any video to make it look like a animated video.
 This program uses Open-CV to essentially change the video to make it look like a cartoon
 ---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 ◙ REQUIREMENTS-
 
 Open-cv2 (import cv2)
+
 numpy (import numpy as np)
+
 tkinter (from tkinter import Tk) & (from tkinter.filedialog import askopenfilename)
+
 time (import time)
+
 moviepy.editor (import moviepy.editor as moviepy) - To install This module use: "pip install moviepy"
 
 ---------------------------------------------------------------------------------------------------
