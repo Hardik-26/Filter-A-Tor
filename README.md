@@ -26,7 +26,7 @@ Then it changes all the frames(image files) to make them look like a cartoon ima
 after all the image file are converted to look like cartoon this program will compile all the cartoonized frames back into a video.
 
 ---------------------------------------------------------------------------------------------------
-
+ 
 ◙ NOTE- Make sure all the file are on your desktop Before executing the program.
 
 ---------------------------------------------------------------------------------------------------
