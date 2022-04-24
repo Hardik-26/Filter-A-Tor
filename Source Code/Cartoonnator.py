@@ -6,6 +6,7 @@
 # This program  will convert a video to looks like its hand animated.
 # It uses "OpenCV" AI to do the same.
 # Time taken to complete this project- 14 Hrs.
+# Author : Hardik Shah.
 #|---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #|=================================================================================================================================================================================|
 
@@ -18,10 +19,10 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 import time
 import moviepy.editor as moviepy
-#----------------------------------------------------------
+#-------------------------------------------------------------------------
 
 
-# PRE-REQ -----------------------------------------------------
+# PRE-REQ ----------------------------------------------------------------
 Home_path=os.environ["HOMEPATH"]+'\Desktop'
 print(' SELECT VIDEO FILE ')
 print()
@@ -30,7 +31,7 @@ filename = askopenfilename()
 cap= cv2.VideoCapture(filename) #------------ VideoPath
 fff=cap.get(cv2.CAP_PROP_FPS)
 fps=int(fff)
-#-----------------------------------------------------------------
+#--------------------------------------------------------------------------
 
 
 # COLLECT FRAMES------------------------------------------------------------
@@ -52,7 +53,7 @@ def Frame():
     print('PROGRESS: 25%')
 #---------------------------------------------------------------------------------
 
-# CARTOONIZE----------------------------------------------------------------
+# CARTOONIZE----------------------------------------------------------------------
 def cartoon():
     os.mkdir(Home_path+'\CARTOON FRAMES')
     os.chdir(Home_path+'\FRAMES')
@@ -78,7 +79,7 @@ def cartoon():
     print('PROGRESS: 50%')
 #---------------------------------------------------------------------------------
 
-#COMPILE VIDEO--------------------------------------------------------------
+#COMPILE VIDEO--------------------------------------------------------------------
 def Compile():
     os.chdir(Home_path)
     l1=os.listdir(Home_path+'\CARTOON FRAMES')
@@ -93,7 +94,7 @@ def Compile():
         height, width, layers = img.shape
         size = (width,height)
         img_array.append(img)
-    out = cv2.VideoWriter('VID.mp4',cv2.VideoWriter_fourcc(*'DIVX'), int(fps), size)
+    out = cv2.VideoWriter('Cartoon_Video.mp4',cv2.VideoWriter_fourcc(*'DIVX'), int(fps), size)
     for i in range(len(img_array)):
         out.write(img_array[i])
     out.release()
@@ -108,8 +109,11 @@ def Compile():
 
 print('PLEASE WAIT TILL THE PROCEES IS OVER.')
 print()
-Vfile=moviepy.VideoFileClip(filename) #-----------------EXTRACTING AUDIO
-audioclip=Vfile.audio.copy() #---------------------------↗
+try:
+    Vfile=moviepy.VideoFileClip(filename) #-----------------EXTRACTING AUDIO
+    audioclip=Vfile.audio.copy() #---------------------------↗
+except:
+    pass
 Frame()
 time.sleep(1)
 cartoon()
@@ -117,17 +121,19 @@ time.sleep(1)
 Compile()
 cv2.destroyAllWindows()
 os.chdir(Home_path)
-videoclip = moviepy.VideoFileClip(Home_path+'\\'+'VID.mp4')
-clip = videoclip.set_audio(audioclip)
-clip.write_videofile(Home_path+'\\'+'Cartoon.mp4')
+try:
+    videoclip = moviepy.VideoFileClip(Home_path+'\\'+'Cartoon_Video.mp4')
+    clip = videoclip.set_audio(audioclip)
+    clip.write_videofile(Home_path+'\\'+'Cartoon_Video_With_Audio.mp4')
+except:
+    pass
+
 print()
 print('PROGRESS: 99%')
 print()
 time.sleep(3)
 os.system('del.pyc')
 #-------------------------------------------------------------------------------------
-
-
 
 #|=================================================================================================================================================================================|
 #|                                                                                  CODE END                                                                                                        |
