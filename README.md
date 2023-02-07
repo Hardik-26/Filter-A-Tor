@@ -1,29 +1,31 @@
-# Cartoonnator
---------------------------------------------------------------------------------------------------- 
-Cartoonnator is a Python project that will convert any video to make it look like a animated video. 
-This program uses Open-CV to essentially change the video to make it look like a cartoon
----------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
+# Filter-A-Tor
+
+--------------------------------------------------------------------------------------------------------
+Filter-A-Tor is a Python project that will add a filter to any video. 
+This program uses Open-CV to essentially change the video to apply a filter to each frame of the video.
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 ◙ REQUIREMENTS-
 
-Open-cv2 (import cv2)
+tkinter 
 
-numpy (import numpy as np)
+time 
 
-tkinter (from tkinter import Tk) & (from tkinter.filedialog import askopenfilename)
+Open-cv2 (pip install opencv-python)
 
-time (import time)
+numpy (pip install numpy)
 
-moviepy.editor (import moviepy.editor as moviepy) - To install This module use: "pip install moviepy"
+moviepy.editor (pip install moviepy)
 
 ---------------------------------------------------------------------------------------------------
 
 ◙ Basic Program Process-
 
-First the program breaks down the video into frame which are saved as Image file.
-Then it converts all the frames(image files) to cartoon frames - This is done with the help of Open-Cv.
-after all the image file are converted to look like cartoon the program will compile all the cartoonized frames back into a video.
+First the program breaks down the video into frame (A 5 second video with 30fps will have around 150 frames),
+each frame(jpeg data) is then passed to a function that applies the chosen filter to the image and saves
+the image file in a directory. 
+After all frames have passed through the function, all the filtered-frames are read and compiled back into a video.
 
 ---------------------------------------------------------------------------------------------------
  
