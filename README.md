@@ -16,8 +16,6 @@ Open-cv2 (pip install opencv-python)
 
 numpy (pip install numpy)
 
-moviepy.editor (pip install moviepy)
-
 ---------------------------------------------------------------------------------------------------
 
 ◙ Basic Program Process-
